@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Evan Mejia — Full-Stack Developer &amp; Systems Architect</title>
+        <meta
+            name="description"
+            content="Full-stack developer &amp; systems architect. Complex technologies mapped into organized, functional solutions — self-hosted platforms, automated infrastructure, and AI workflows."
+        />
+        <meta property="og:site_name" content="Evan Mejia" />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:title"
+            content="Evan Mejia — Full-Stack Developer &amp; Systems Architect"
+        />
+        <meta
+            property="og:description"
+            content="Full-stack developer &amp; systems architect. Complex technologies mapped into organized, functional solutions — self-hosted platforms, automated infrastructure, and AI workflows."
+        />
+        <meta property="og:url" content="https://www.evanmejia.com/" />
+        <meta property="og:image" content="https://www.evanmejia.com/assets/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="800" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+        <!-- Set theme before first paint (persisted choice, else system preference) -->
+        <script>
+            document.documentElement.dataset.theme =
+                localStorage.getItem("theme") ||
+                (window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "dark"
+                    : "light");
+        </script>
+
+        <!-- Roboto (text) + Roboto Mono (accents) via bunny.net, a tracking-free mirror -->
+        <link rel="preconnect" href="https://fonts.bunny.net" />
+        <link
+            href="https://fonts.bunny.net/css?family=roboto:ital,wght@0,400;0,500;0,600;1,400&family=roboto-mono:ital,wght@0,400;0,700;1,400"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+
+    <body>
+        <a class="skip-link" href="#main">Skip to content</a>
+
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" aria-label="Dark mode" />
+            <span class="slider"></span>
+        </label>
+
+        <div class="page">
+            <div class="layout">
+                <!-- ================= Main column ================= -->
+                <main id="main">
+                    <h1>Evan Mejia</h1>
+                    <p class="role">Full-Stack Developer · Systems Architect</p>
+                    <p class="lead">
+                        I map out tech stacks, optimize core IT infrastructure,
+                        and ship full-stack solutions that scale. Having managed
+                        public-sector technology teams, I bridge the gap between
+                        high-level technical strategy and hands-on
+                        implementation. I design resilient systems that solve
+                        complex organizational challenges, delivering clean
+                        architecture from the infrastructure layer to the user
+                        interface.
+                    </p>
+                    <!-- Cal.com popup embed: clicking opens a booking modal
+                         with both event types. If the embed script is
+                         blocked, the button falls back to a plain link. -->
+                    <a
+                        class="btn btn--lift"
+                        href="https://cal.com/evanmejia"
+                        target="_blank"
+                        rel="noopener"
+                        data-cal-link="evanmejia"
+                        data-cal-embed-trigger
+                    >
+                        <span>Reach Out</span>
+                    </a>
+                    <script
+                        src="https://cal.com/evanmejia/embed/embed.js"
+                        data-iframe-src="https://cal.com/evanmejia/embed?calEmbed=1"
+                    ></script>
+
+                    <h2 id="projects">
+                        <a class="projects-link" href="projects.html">Projects</a>
+                    </h2>
+                    <div class="cards">
+                        <a
+                            class="card card--shellbound"
+                            href="projects.html#shellbound-launcher"
+                        >
+                            <span class="card-meta">Infrastructure</span>
+                            <h3>Shellbound Launcher</h3>
+                            <p>
+                                A self-hosted game launcher that delivers
+                                client, patches, and updates from its own CDN.
+                            </p>
+                            <ul class="card-tech" aria-label="Tech stack">
+                                <li>
+                                    <img
+                                        class="tech-icon tech-icon-wails"
+                                        src="assets/icons/wails.svg"
+                                        alt="Wails"
+                                        width="32"
+                                        height="18"
+                                        loading="lazy"
+                                    />
+                                </li>
+                                <li>
+                                    <img
+                                        class="tech-icon tech-icon-go"
+                                        src="assets/icons/go.svg"
+                                        alt="Go"
+                                        width="40"
+                                        height="16"
+                                        loading="lazy"
+                                    />
+                                </li>
+                                <li>
+                                    <img
+                                        class="tech-icon"
+                                        src="assets/icons/proxmox.svg"
+                                        alt="Proxmox"
+                                        width="18"
+                                        height="18"
+                                        loading="lazy"
+                                    />
+                                </li>
+                                <li>
+                                    <img
+                                        class="tech-icon"
+                                        src="assets/icons/bash.svg"
+                                        alt="Bash"
+                                        width="18"
+                                        height="18"
+                                        loading="lazy"
+                                    />
+                                </li>
+                            </ul>
+                        </a>
+                        <a
+                            class="card card--phaworma"
+                            href="projects.html#phaworma"
+                        >
+                            <span class="card-meta">Web platform</span>
+                            <h3>Phaworma</h3>
+                            <p>
+                                An ephemeral form builder where every form and
+                                its data self-destructs on schedule.
+                            </p>
+                            <ul class="card-tech" aria-label="Tech stack">
+                                <li>
+                                    <img
+                                        class="tech-icon"
+                                        src="assets/icons/html5.svg"
+                                        alt="HTML5"
+                                        width="18"
+                                        height="18"
+                                        loading="lazy"
+                                    />
+                                </li>
+                                <li>
+                                    <img
+                                        class="tech-icon"
+                                        src="assets/icons/css.svg"
+                                        alt="CSS"
+                                        width="18"
+                                        height="18"
+                                        loading="lazy"
+                                    />
+                                </li>
+                                <li>
+                                    <img
+                                        class="tech-icon tech-icon-js"
+                                        src="assets/icons/javascript.svg"
+                                        alt="JavaScript"
+                                        width="24"
+                                        height="18"
+                                        loading="lazy"
+                                    />
+                                </li>
+                                <li>
+                                    <img
+                                        class="tech-icon tech-icon-go"
+                                        src="assets/icons/go.svg"
+                                        alt="Go"
+                                        width="40"
+                                        height="16"
+                                        loading="lazy"
+                                    />
+                                </li>
+                                <li>
+                                    <img
+                                        class="tech-icon"
+                                        src="assets/icons/proxmox.svg"
+                                        alt="Proxmox"
+                                        width="18"
+                                        height="18"
+                                        loading="lazy"
+                                    />
+                                </li>
+                                <li>
+                                    <img
+                                        class="tech-icon"
+                                        src="assets/icons/sqlite.svg"
+                                        alt="SQLite"
+                                        width="18"
+                                        height="18"
+                                        loading="lazy"
+                                    />
+                                </li>
+                            </ul>
+                        </a>
+                        <a class="card" href="projects.html#ai-data-stack">
+                            <span class="card-meta">AI infrastructure</span>
+                            <h3>On-Prem AI Data Analysis Stack</h3>
+                            <p>
+                                On-prem agentic data analysis stack that
+                                securely queries and clean unstructured data.
+                            </p>
+                            <ul class="card-tech" aria-label="Tech stack">
+                                <li>
+                                    <img
+                                        class="tech-icon"
+                                        src="assets/icons/python.svg"
+                                        alt="Python"
+                                        width="18"
+                                        height="18"
+                                        loading="lazy"
+                                    />
+                                </li>
+                                <li>
+                                    <img
+                                        class="tech-icon"
+                                        src="assets/icons/proxmox.svg"
+                                        alt="Proxmox"
+                                        width="18"
+                                        height="18"
+                                        loading="lazy"
+                                    />
+                                </li>
+                                <li>
+                                    <img
+                                        class="tech-icon"
+                                        src="assets/icons/sqlite.svg"
+                                        alt="SQLite"
+                                        width="18"
+                                        height="18"
+                                        loading="lazy"
+                                    />
+                                </li>
+                            </ul>
+                        </a>
+                    </div>
+                </main>
+
+                <!-- ================= Sidebar ================= -->
+                <aside class="sidebar">
+                    <img
+                        class="portrait"
+                        src="assets/profile.svg"
+                        alt="Portrait of Evan Mejia"
+                        width="720"
+                        height="480"
+                    />
+                    <div class="sidebar-row">
+                        <span id="status" class="status-pill status-pill--green"
+                            >Available for contracts</span
+                        >
+                        <div class="icon-row" aria-label="Profiles and contact">
+                            <a
+                                class="icon-link"
+                                href="https://github.com/evanmejia"
+                                aria-label="GitHub"
+                                title="GitHub"
+                            >
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                                    />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- ================= Footer ================= -->
+            <footer class="footer">
+                <p>
+                    <span class="copyright">© <span id="year">2026</span> Evan Mejia</span>
+                    <span class="footer-sep" aria-hidden="true">|</span>
+                    <a href="mailto:contact@evanmejia.com">contact@evanmejia.com</a>
+                </p>
+            </footer>
+        </div>
+
+        <script src="js/main.js" defer></script>
+    </body>
+</html>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="480" viewBox="0 0 720 480" role="img" aria-label="Placeholder portrait — replace with a real photo">
+  <rect width="720" height="480" fill="#e7e5e4"/>
+  <circle cx="360" cy="175" r="72" fill="#a8a29e"/>
+  <path d="M360 268c-85 0-140 48-155 125l-15 40h360l-15-40c-90-125-35-77-175-125Z" fill="#a8a29e"/>
+  <text x="360" y="465" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#78716c">drop your photo here (3:2 landscape)</text>
+</svg>

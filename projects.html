@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Projects — Evan Mejia</title>
+        <meta
+            name="description"
+            content="Case studies: Shellbound Launcher, Phaworma, and an on-prem AI data analysis stack — the problem, the solution, and the metrics behind each."
+        />
+        <meta property="og:site_name" content="Evan Mejia" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Projects — Evan Mejia" />
+        <meta
+            property="og:description"
+            content="Case studies: Shellbound Launcher, Phaworma, and an on-prem AI data analysis stack — the problem, the solution, and the metrics behind each."
+        />
+        <meta property="og:url" content="https://www.evanmejia.com/projects.html" />
+        <meta property="og:image" content="https://www.evanmejia.com/assets/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="800" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+        <!-- Set theme before first paint (persisted choice, else system preference) -->
+        <script>
+            document.documentElement.dataset.theme =
+                localStorage.getItem("theme") ||
+                (window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "dark"
+                    : "light");
+        </script>
+
+        <!-- Roboto (text) + Roboto Mono (accents) via bunny.net, a tracking-free mirror -->
+        <link rel="preconnect" href="https://fonts.bunny.net" />
+        <link
+            href="https://fonts.bunny.net/css?family=roboto:ital,wght@0,400;0,500;0,600;1,400&family=roboto-mono:ital,wght@0,400;0,700;1,400"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+
+    <body>
+        <a class="skip-link" href="#main">Skip to content</a>
+
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" aria-label="Dark mode" />
+            <span class="slider"></span>
+        </label>
+
+        <nav class="page-nav" aria-label="Main">
+            <a href="index.html">Home</a>
+            <a class="active" href="projects.html">Projects</a>
+        </nav>
+
+        <div class="page">
+            <main id="main" class="prose-col">
+                <h1>Projects</h1>
+                <p class="lead">
+                    Infrastructure and automation case studies — the problem,
+                    the solution, and the metrics behind it.
+                </p>
+
+                <div class="projects">
+                    <!-- ============ Project 1: Shellbound Launcher ============ -->
+                    <article id="shellbound-launcher" class="project">
+                        <p class="card-meta">Project</p>
+                        <h2>Shellbound Launcher</h2>
+                        <p class="tagline">
+                            A self-hosted game launcher that delivers a
+                            9&nbsp;GB client, patches, and updates from its own
+                            CDN.
+                        </p>
+                        <ul class="pills" aria-label="Tech stack">
+                            <li class="pill">Go</li>
+                            <li class="pill">Wails v2</li>
+                            <li class="pill">Proxmox LXC</li>
+                            <li class="pill">Nginx CDN</li>
+                        </ul>
+                        <div class="fields">
+                            <div>
+                                <p class="field-label">Problem</p>
+                                <p>
+                                    Private game servers need a reliable front
+                                    door: delivering a 9&nbsp;GB game client,
+                                    continuous patches, and launcher updates to
+                                    players — without bloated installers, full
+                                    re-downloads, or broken patch states.
+                                </p>
+                            </div>
+                            <div>
+                                <p class="field-label">
+                                    Solution &amp; Metrics
+                                </p>
+                                <p>
+                                    A Wails v2 desktop app (Go backend,
+                                    vanilla-JS frontend) backed by a self-hosted
+                                    CDN on a Proxmox LXC. Resumable downloads
+                                    with SHA-256 verification, manifest diffing
+                                    so players fetch only changed files, atomic
+                                    self-update, and a one-command release
+                                    pipeline — patch traffic drops from
+                                    full-client re-downloads to delta-only.
+                                </p>
+                            </div>
+                        </div>
+                        <p>
+                            <a
+                                href="https://github.com/evanmejia/shellbound-launcher"
+                                >View repository ↗</a
+                            >
+                        </p>
+                    </article>
+
+                    <!-- ============ Project 2: Phaworma ============ -->
+                    <article id="phaworma" class="project">
+                        <p class="card-meta">Project</p>
+                        <h2>Phaworma</h2>
+                        <p class="tagline">
+                            An ephemeral form builder where every form — and its
+                            data — self-destructs on schedule.
+                        </p>
+                        <ul class="pills" aria-label="Tech stack">
+                            <li class="pill">Go</li>
+                            <li class="pill">PocketBase</li>
+                            <li class="pill">Proxmox LXC</li>
+                            <li class="pill">Nginx Proxy Manager</li>
+                        </ul>
+                        <div class="fields">
+                            <div>
+                                <p class="field-label">Problem</p>
+                                <p>
+                                    SaaS form tools keep every response forever
+                                    — vendor lock-in, privacy risk, and stale
+                                    data nobody cleans up.
+                                </p>
+                            </div>
+                            <div>
+                                <p class="field-label">
+                                    Solution &amp; Metrics
+                                </p>
+                                <p>
+                                    A self-hosted, privacy-first form builder
+                                    running as a single Go binary (PocketBase
+                                    extended as an application framework) on one
+                                    Proxmox LXC — live at
+                                    <a href="https://forms.evanmejia.com"
+                                        >forms.evanmejia.com</a
+                                    >. Every form gets an isolated data
+                                    collection with a lifespan (1 day–1 month);
+                                    an hourly purge cron physically drops
+                                    expired tables from disk and its link
+                                    answers 410 Gone. Zero stale data by design,
+                                    zero SaaS cost.
+                                </p>
+                            </div>
+                        </div>
+                        <p>
+                            <a href="https://github.com/evanmejia/Phaworma"
+                                >View repository ↗</a
+                            >
+                        </p>
+                    </article>
+
+                    <!-- ============ Project 3: On-Prem AI Data Analysis Stack ============ -->
+                    <article id="ai-data-stack" class="project">
+                        <p class="card-meta">Project</p>
+                        <h2>On-Prem AI Data Analysis Stack</h2>
+                        <p class="tagline">
+                            Agentic data analysis, fully self-hosted — the data
+                            never leaves the rack.
+                        </p>
+                        <ul class="pills" aria-label="Tech stack">
+                            <li class="pill">OpenClaw</li>
+                            <li class="pill">WrenAI</li>
+                            <li class="pill">Unstract</li>
+                            <li class="pill">OpenRefine</li>
+                        </ul>
+                        <div class="fields">
+                            <div>
+                                <p class="field-label">Problem</p>
+                                <p>
+                                    Teams want AI-driven data analysis —
+                                    natural-language queries, document
+                                    extraction, data cleansing — but SaaS AI
+                                    means shipping sensitive data to a
+                                    vendor&rsquo;s cloud.
+                                </p>
+                            </div>
+                            <div>
+                                <p class="field-label">
+                                    Solution &amp; Metrics
+                                </p>
+                                <p>
+                                    A fully on-prem agentic stack on Proxmox:
+                                    OpenClaw as the local AI agent (chat-driven,
+                                    persistent memory, skill-based
+                                    orchestration), WrenAI for
+                                    natural-language-to-SQL, Unstract for
+                                    document intelligence, and OpenRefine for
+                                    data cleansing. 100% data locality, zero
+                                    per-seat SaaS cost, no vendor lock-in.
+                                </p>
+                            </div>
+                        </div>
+                        <p>
+                            <a href="https://github.com/evanmejia"
+                                >GitHub profile ↗</a
+                            >
+                        </p>
+                    </article>
+                </div>
+            </main>
+
+            <!-- ================= Footer ================= -->
+            <footer class="footer">
+                <p>
+                    <span class="copyright">© <span id="year">2026</span> Evan Mejia</span>
+                    <span class="footer-sep" aria-hidden="true">|</span>
+                    <a href="mailto:contact@evanmejia.com">contact@evanmejia.com</a>
+                </p>
+            </footer>
+        </div>
+
+        <script src="js/main.js" defer></script>
+    </body>
+</html>

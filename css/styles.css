@@ -1,0 +1,772 @@
+/* ---------- Design tokens ---------- */
+:root {
+  --font-sans: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Roboto Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --bg: #e6e6ec;
+  --bg-card: #ffffff;
+  --card-glass: rgba(255, 255, 255, 0.72);
+  --card-glass-border: rgba(255, 255, 255, 0.75);
+  --card-border-hover: rgba(26, 26, 36, 0.24);
+  --card-shadow: 0 12px 32px rgba(26, 26, 36, 0.1);
+  --text: #333346;
+  --text-heading: #1a1a24;
+  --text-muted: #535373;
+  --text-soft: #333346;
+  --border: #c1c1d2;
+  --btn-bg: #1a1a24;
+  --btn-bg-hover: #333346;
+  --btn-text: #e6e6ec;
+
+  --pill-green-text: #e1f9dc;
+  --pill-green-bg: #127a00;
+  --pill-yellow-text: #854d0e;
+  --pill-yellow-bg: rgba(234, 179, 8, 0.14);
+  --pill-red-text: #991b1b;
+  --pill-red-bg: rgba(239, 68, 68, 0.12);
+
+  --projects-btn-bg-hover: #d7d7e2;
+
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #0e0e12;
+  --bg-card: #1a1a24;
+  --card-glass: rgba(26, 26, 36, 0.8);
+  --card-glass-border: rgba(255, 255, 255, 0.1);
+  --card-border-hover: rgba(255, 255, 255, 0.28);
+  --card-shadow: none;
+  --text: #c1c1d2;
+  --text-heading: #e6e6ec;
+  --text-muted: #9c9cba;
+  --text-soft: #a6a6bf;
+  --border: #333346;
+  --btn-bg: #e6e6ec;
+  --btn-bg-hover: #c1c1d2;
+  --btn-text: #1a1a24;
+
+  --pill-green-text: #127a00;
+  --pill-green-bg: #e1f9dc;
+  --pill-yellow-text: #facc15;
+  --pill-yellow-bg: rgba(250, 204, 21, 0.1);
+  --pill-red-text: #f87171;
+  --pill-red-bg: rgba(248, 113, 113, 0.1);
+
+  --projects-btn-bg-hover: #262633;
+
+  color-scheme: dark;
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* ---------- Page frame ---------- */
+.page {
+  display: flex;
+  flex-direction: column;
+  max-width: 64rem;
+  margin: 0 auto;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 6rem 3rem 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+
+main > h2:first-child,
+.sidebar > h2:first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 767px) {
+  .page {
+    padding: 4.5rem 1.5rem 0;
+  }
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+}
+
+/* ---------- Subpage nav (top-right links; scrolls with the page,
+   sits left of the fixed theme toggle) ---------- */
+.page-nav {
+  position: absolute;
+  top: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.page-nav a {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.page-nav a:hover,
+.page-nav a.active {
+  color: var(--text-heading);
+}
+
+/* ---------- Typography ---------- */
+h1 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-heading);
+}
+
+h2 {
+  margin: 3rem 0 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.33;
+  color: var(--text-heading);
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+.lead {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.role {
+  margin: 0 0 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+/* ---------- Status pill (index.html sidebar; state driven by
+   status.json, which tools/update-status.mjs rewrites from
+   cal.com bookings) ---------- */
+.status-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem 0.375rem 0.5rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* Pulsing status indicator (uiverse.io/Zain-Muhammad/plastic-gecko-7,
+   MIT). Ring + dot are pseudo-elements so main.js's textContent swap
+   can't wipe them; currentColor follows each state's text color. */
+.status-pill::before {
+  box-sizing: border-box;
+  content: "";
+  width: 14px;
+  height: 14px;
+  flex: none;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  animation: status-ring 2s ease-in-out infinite;
+}
+
+.status-pill::after {
+  content: "";
+  position: absolute;
+  left: calc(0.5rem + 2px);
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: status-dot 2s ease-in-out infinite;
+}
+
+@keyframes status-ring {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+}
+
+@keyframes status-dot {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0);
+  }
+}
+
+.status-pill--green {
+  color: var(--pill-green-text);
+  background: var(--pill-green-bg);
+}
+
+.status-pill--yellow {
+  color: var(--pill-yellow-text);
+  background: var(--pill-yellow-bg);
+}
+
+.status-pill--red {
+  color: var(--pill-red-text);
+  background: var(--pill-red-bg);
+}
+
+a {
+  color: var(--text-soft);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 3px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+a:hover {
+  color: var(--text-heading);
+  text-decoration-color: currentColor;
+}
+
+/* ---------- Button ---------- */
+.btn {
+  display: inline-block;
+  margin-top: 0.25rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.375rem;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn:hover {
+  background: var(--btn-bg-hover);
+  color: var(--btn-text);
+  text-decoration: none;
+}
+
+/* ---------- Lifted CTA ----------
+   "Let's talk" button adapted from uiverse.io/Voxybuns,
+   "lucky-fireant-71" (MIT). The .btn base is the base block and
+   the inner span is the lifted face; the original's hardcoded
+   colors are remapped to the site's --btn tokens. */
+.btn--lift {
+  border-radius: 0.75rem;
+  padding: 0;
+  font-weight: 600;
+}
+
+.btn--lift > span {
+  display: block;
+  border: 2px solid var(--btn-bg);
+  border-radius: 0.75rem;
+  padding: 0.75em 1.5em;
+  background: var(--btn-text);
+  color: var(--btn-bg);
+  transform: translateY(-0.2em);
+  transition: transform 0.15s ease;
+}
+
+.btn--lift:hover {
+  /* keep the base block constant — the face does the lifting */
+  background: var(--btn-bg);
+}
+
+.btn--lift:hover > span {
+  transform: translateY(-0.33em);
+}
+
+.btn--lift:active > span {
+  transform: translateY(0);
+}
+
+.btn--lift:focus-visible {
+  outline: 2px solid var(--text-heading);
+  outline-offset: 2px;
+}
+
+/* ---------- Projects heading button (index.html) ----------
+   Invisible at rest (plain heading); the button shape + tint appear
+   only on hover / keyboard focus. */
+.projects-link {
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  background: transparent;
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.projects-link:hover,
+.projects-link:focus-visible {
+  background: var(--projects-btn-bg-hover);
+  border-color: var(--card-border-hover);
+}
+
+.projects-link:focus-visible {
+  outline: 2px solid var(--text-heading);
+  outline-offset: 3px;
+}
+
+/* ---------- Work cards ----------
+   Glass effect adapted from uiverse.io/SteveBloX,
+   "dangerous-warthog-85" (MIT). */
+.cards {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0.875rem 1.75rem;
+  border: 1px solid var(--card-glass-border);
+  border-radius: 1rem;
+  background: var(--card-glass);
+  color: inherit;
+  text-decoration: none;
+  box-shadow: var(--card-shadow);
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform 0.5s ease, border-color 0.5s ease;
+}
+
+/* Per-card background art in two aligned layers (same oversized box,
+   so the art matches 1:1 and blurred edges are clipped by overflow:
+   hidden): a blurred, tinted frost underneath, and a sharp copy on
+   top that a mask fades in from the right — readable on the left,
+   crisp art on the right. */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -1.25rem;
+  z-index: -1;
+  background:
+    linear-gradient(65deg, var(--card-glass) 0 45%, transparent 80%),
+    url("../assets/work-bg.svg") center / cover no-repeat;
+  filter: blur(10px);
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: -1.25rem;
+  z-index: -1;
+  background: url("../assets/work-bg.svg") center / cover no-repeat;
+  -webkit-mask-image: linear-gradient(65deg, transparent 50%, #000 85%);
+  mask-image: linear-gradient(65deg, transparent 50%, #000 85%);
+}
+
+/* Per-card art: override the shared work-bg.svg (the gradient frost
+   layer on ::before is kept) */
+.card--shellbound::before {
+  background-image: linear-gradient(65deg, var(--card-glass) 0 45%, transparent 80%), url("../assets/shellbound-bg.webp");
+}
+
+.card--shellbound::after {
+  background-image: url("../assets/shellbound-bg.webp");
+}
+
+.card--phaworma::before {
+  background-image: linear-gradient(65deg, var(--card-glass) 0 45%, transparent 80%), url("../assets/phaworma-bg.png");
+}
+
+.card--phaworma::after {
+  background-image: url("../assets/phaworma-bg.png");
+}
+
+.card:hover {
+  border-color: var(--card-border-hover);
+  transform: scale(1.02);
+  color: inherit;
+  text-decoration: none;
+}
+
+.card:active {
+  transform: scale(0.98);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--text-heading);
+  outline-offset: 3px;
+}
+
+.card-meta {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Brighter over the card art (leaves projects-page meta untouched) */
+.card .card-meta {
+  color: var(--text-soft);
+}
+
+.card h3 {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--text-heading);
+}
+
+.card p {
+  margin: 0 0 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-soft);
+}
+
+/* Keep the text to about half the card so it doesn't overlap the art
+   that shows through on the right */
+.card .card-meta,
+.card h3,
+.card p {
+  max-width: 55%;
+}
+
+/* Mono tech-stack icons (assets/icons) */
+.card-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0;
+  margin-top: auto;
+  padding: 0;
+  list-style: none;
+}
+
+.tech-icon {
+  display: block;
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+/* Go is a wide wordmark (cropped viewBox): match its height to the
+   other glyphs, width follows the natural aspect */
+.tech-icon-go {
+  width: 2.5rem;
+  height: 1rem;
+}
+
+/* The JS wordmark is cropped to the letters (no box): same rule */
+.tech-icon-js {
+  width: 1.5rem;
+  height: 1.125rem;
+}
+
+/* The Wails dragon is a wide, flat glyph (cropped viewBox): match
+   its height to the shields, width follows the natural aspect */
+.tech-icon-wails {
+  width: 2rem;
+  height: 1.125rem;
+}
+
+/* Icons are near-white; darken them for the light theme */
+[data-theme="light"] .tech-icon {
+  filter: brightness(0) opacity(0.6);
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  position: sticky;
+  top: 4.5rem;
+  align-self: start;
+}
+
+.portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  margin: 0 0 1.5rem;
+  border: 1px solid var(--card-glass-border);
+  border-radius: 1rem;
+  background: var(--card-glass);
+}
+
+.sidebar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.icon-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon-link {
+  display: inline-flex;
+  padding: 0.25rem;
+  color: var(--text-muted);
+  transition: color 0.15s ease;
+}
+
+.icon-link:hover {
+  color: var(--text-heading);
+}
+
+.icon-link svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* ---------- Theme switch ----------
+   Sun/moon slider adapted from uiverse.io/satyamchaudharydev,
+   "shy-earwig-18" (MIT). The original's .switch class is
+   renamed .theme-switch; em-based sizing renders 42×24px. */
+.theme-switch {
+  --width-of-switch: 2.625em;
+  --height-of-switch: 1.5em;
+  --size-of-icon: 1.05em;
+  --slider-offset: 0.225em;
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 50;
+  display: block;
+  width: var(--width-of-switch);
+  height: var(--height-of-switch);
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.theme-switch .slider {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  background-color: #f4f4f5;
+  transition: 0.4s;
+  border-radius: 30px;
+}
+
+.theme-switch .slider:before {
+  position: absolute;
+  content: "";
+  height: var(--size-of-icon);
+  width: var(--size-of-icon);
+  left: var(--slider-offset);
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+  transition: 0.4s;
+  border-radius: 30px;
+}
+
+.theme-switch input:checked + .slider {
+  background-color: #303136;
+}
+
+.theme-switch input:checked + .slider:before {
+  left: calc(100% - (var(--size-of-icon) + var(--slider-offset)));
+  background: #303136;
+  box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
+}
+
+/* The input is visually hidden, so give it a visible focus ring */
+.theme-switch input:focus-visible + .slider {
+  outline: 2px solid var(--text-heading);
+  outline-offset: 2px;
+}
+
+/* ---------- Projects page ---------- */
+.prose-col {
+  max-width: 40rem;
+  margin-bottom: 5rem;
+}
+
+.prose-col h1 {
+  margin-bottom: 1rem;
+}
+
+.prose-col > .lead {
+  margin-bottom: 3.5rem;
+}
+
+.projects {
+  display: grid;
+  gap: 4rem;
+}
+
+.project {
+  scroll-margin-top: 4.5rem;
+}
+
+.project h2 {
+  margin: 0.5rem 0 0.75rem;
+  font-size: 1.75rem;
+}
+
+.tagline {
+  margin: 0 0 1rem;
+  color: var(--text-muted);
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.pill {
+  padding: 0.2rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-card);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-soft);
+}
+
+.fields {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.fields p:last-child {
+  margin-bottom: 0;
+}
+
+.field-label {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  margin-top: auto;
+  padding-bottom: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.footer p {
+  margin: 2rem 0 0;
+}
+
+.footer-sep {
+  margin: 0 0.75rem;
+  color: var(--border);
+}
+
+.copyright {
+  font-family: var(--font-sans);
+}
+
+/* ---------- Accessibility ---------- */
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  transform: translateY(-300%);
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .card:hover,
+  .card:active {
+    transform: none;
+  }
+  .btn--lift:hover > span,
+  .btn--lift:active > span {
+    transform: translateY(-0.2em);
+  }
+}
