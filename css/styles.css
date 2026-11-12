@@ -195,8 +195,7 @@ p {
 }
 
 /* Pulsing status indicator (uiverse.io/Zain-Muhammad/plastic-gecko-7,
-   MIT). Ring + dot are pseudo-elements so main.js's textContent swap
-   can't wipe them; currentColor follows each state's text color. */
+   MIT). */
 .status-pill::before {
   box-sizing: border-box;
   content: "";
@@ -296,9 +295,7 @@ a:hover {
 
 /* ---------- Lifted CTA ----------
    "Let's talk" button adapted from uiverse.io/Voxybuns,
-   "lucky-fireant-71" (MIT). The .btn base is the base block and
-   the inner span is the lifted face; the original's hardcoded
-   colors are remapped to the site's --btn tokens. */
+   "lucky-fireant-71" (MIT). */
 .btn--lift {
   border-radius: 0.75rem;
   padding: 0;
@@ -317,7 +314,6 @@ a:hover {
 }
 
 .btn--lift:hover {
-  /* keep the base block constant — the face does the lifting */
   background: var(--btn-bg);
 }
 
@@ -334,9 +330,7 @@ a:hover {
   outline-offset: 2px;
 }
 
-/* ---------- Projects heading button (index.html) ----------
-   Invisible at rest (plain heading); the button shape + tint appear
-   only on hover / keyboard focus. */
+/* ---------- Projects heading button (index.html) ---------- */
 .projects-link {
   display: block;
   width: 100%;
@@ -384,11 +378,6 @@ a:hover {
   transition: transform 0.5s ease, border-color 0.5s ease;
 }
 
-/* Per-card background art in two aligned layers (same oversized box,
-   so the art matches 1:1 and blurred edges are clipped by overflow:
-   hidden): a blurred, tinted frost underneath, and a sharp copy on
-   top that a mask fades in from the right — readable on the left,
-   crisp art on the right. */
 .card::before {
   content: "";
   position: absolute;
@@ -410,8 +399,6 @@ a:hover {
   mask-image: linear-gradient(65deg, transparent 50%, #000 85%);
 }
 
-/* Per-card art: override the shared work-bg.svg (the gradient frost
-   layer on ::before is kept) */
 .card--shellbound::before {
   background-image: linear-gradient(65deg, var(--card-glass) 0 45%, transparent 80%), url("../assets/shellbound-bg.webp");
 }
@@ -455,7 +442,7 @@ a:hover {
   color: var(--text-muted);
 }
 
-/* Brighter over the card art (leaves projects-page meta untouched) */
+
 .card .card-meta {
   color: var(--text-soft);
 }
@@ -500,27 +487,25 @@ a:hover {
   height: 1.125rem;
 }
 
-/* Go is a wide wordmark (cropped viewBox): match its height to the
-   other glyphs, width follows the natural aspect */
+/* Go cropped viewBox: match height to the
+   other glyphs. */
 .tech-icon-go {
   width: 2.5rem;
   height: 1rem;
 }
 
-/* The JS wordmark is cropped to the letters (no box): same rule */
+/* JS wordmark cropped to the letters */
 .tech-icon-js {
   width: 1.5rem;
   height: 1.125rem;
 }
 
-/* The Wails dragon is a wide, flat glyph (cropped viewBox): match
-   its height to the shields, width follows the natural aspect */
+
 .tech-icon-wails {
   width: 2rem;
   height: 1.125rem;
 }
 
-/* Icons are near-white; darken them for the light theme */
 [data-theme="light"] .tech-icon {
   filter: brightness(0) opacity(0.6);
 }
@@ -574,8 +559,7 @@ a:hover {
 
 /* ---------- Theme switch ----------
    Sun/moon slider adapted from uiverse.io/satyamchaudharydev,
-   "shy-earwig-18" (MIT). The original's .switch class is
-   renamed .theme-switch; em-based sizing renders 42×24px. */
+   "shy-earwig-18" (MIT). */
 .theme-switch {
   --width-of-switch: 2.625em;
   --height-of-switch: 1.5em;
@@ -628,7 +612,7 @@ a:hover {
   box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
 }
 
-/* The input is visually hidden, so give it a visible focus ring */
+/* The input is visually hidden, visible focus ring */
 .theme-switch input:focus-visible + .slider {
   outline: 2px solid var(--text-heading);
   outline-offset: 2px;
