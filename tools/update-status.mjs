@@ -2,21 +2,16 @@
 /**
  * update-status.mjs — rewrite status.json from cal.com bookings.
  *
- * Counts Evan's active bookings in the next 30 days and writes the
+ * Counts active bookings in the next 30 days and writes the
  * matching status pill state to status.json (rendered in the
  * index.html sidebar).
  *
- * Rules: 0 bookings = green, 1-2 = yellow, 3+ = red.
- *
- * Uses the cal.com API v2 (v1 was retired April 2026):
+ * cal.com API v2:
  *   GET /v2/bookings?status=upcoming&afterStart=..&beforeEnd=..&limit=10
  *   headers: Authorization: Bearer <key>, cal-api-version: 2026-05-01
  *
- * Safety: on ANY failure the existing status.json is left untouched and
- * the exit code is non-zero, so cron logging catches it.
- *
- * Requires Node 18+ (global fetch). The API key comes from the
- * environment — never commit it to this repo.
+ * Any failure the existing status.json is left untouched and
+ * the exit code is non-zero, cron logging catches it.
  *
  * Usage:
  *   CALCOM_API_KEY=cal_... node tools/update-status.mjs [output-path]
@@ -74,8 +69,7 @@ const payload = await res.json();
 const bookings = payload.data ?? [];
 const hasMore = payload.pagination?.hasMore ?? false;
 
-// limit=10: a full page (or hasMore) means 10+ bookings, which is
-// already in the red band — so one request is always sufficient.
+
 const count = hasMore ? 10 : bookings.length;
 const status = count >= 3 ? "red" : count >= 1 ? "yellow" : "green";
 
@@ -83,7 +77,7 @@ const out = { status, label: LABELS[status], updated: new Date().toISOString() }
 const target = process.argv[2] ?? "status.json";
 const tmp = `${target}.tmp`;
 writeFileSync(tmp, JSON.stringify(out) + "\n", "utf8");
-renameSync(tmp, target); // atomic on POSIX: readers never see a partial file
+renameSync(tmp, target); // atomic on POSIX
 console.log(
   `${new Date().toISOString()} count=${count} status=${status} -> ${target}`,
 );
