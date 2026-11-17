@@ -1,6 +1,4 @@
-/* Evan Mejia — personal site
-   Vanilla JS: theme switch (persisted, system-aware), footer year, and a
-   placeholder contact-form handler. */
+
 (function () {
   "use strict";
 

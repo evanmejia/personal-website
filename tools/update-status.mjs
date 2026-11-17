@@ -6,15 +6,8 @@
  * matching status pill state to status.json (rendered in the
  * index.html sidebar).
  *
- * cal.com API v2:
- *   GET /v2/bookings?status=upcoming&afterStart=..&beforeEnd=..&limit=10
- *   headers: Authorization: Bearer <key>, cal-api-version: 2026-05-01
- *
  * Any failure the existing status.json is left untouched and
  * the exit code is non-zero, cron logging catches it.
- *
- * Usage:
- *   CALCOM_API_KEY=cal_... node tools/update-status.mjs [output-path]
  *
  * Cron (every 6 h, key in a 600-perm env file):
  *   0 0,6,12,18 * * * cd /var/www/evanmejia && set -a && . /etc/evanmejia.env && set +a && \
