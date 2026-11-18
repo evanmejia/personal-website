@@ -186,11 +186,11 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.375rem 0.75rem 0.375rem 0.5rem;
+  padding: 0.375rem 0.875rem 0.375rem 0.625rem;
   border-radius: 999px;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 0.6875rem;
+  font-weight: 500;
   line-height: 1.5;
   white-space: nowrap;
 }
@@ -211,7 +211,7 @@ p {
 .status-pill::after {
   content: "";
   position: absolute;
-  left: calc(0.5rem + 2px);
+  left: calc(0.625rem + 2px);
   top: 50%;
   width: 10px;
   height: 10px;
@@ -553,9 +553,10 @@ a:hover {
   color: var(--text-heading);
 }
 
+/* Match the status-pill's height (~28.5px: 11px line box + 12px padding) */
 .icon-link svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.75rem;
+  height: 1.75rem;
 }
 
 /* ---------- Theme switch ----------
@@ -643,7 +644,7 @@ a:hover {
 }
 
 .project h2 {
-  margin: 0.5rem 0 0.75rem;
+  margin: 0 0 0.75rem;
   font-size: 1.75rem;
 }
 
@@ -671,24 +672,19 @@ a:hover {
   color: var(--text-soft);
 }
 
-.fields {
-  display: grid;
-  gap: 1.25rem;
-  margin-bottom: 1.25rem;
+/* ---------- CTA (bottom of projects page) ---------- */
+.cta {
+  margin-top: 4rem;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--bg-card);
+  text-align: center;
 }
 
-.fields p:last-child {
-  margin-bottom: 0;
-}
-
-.field-label {
-  margin: 0 0 0.4rem;
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-style: italic;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
+.cta h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
 }
 
 /* ---------- Footer ---------- */
