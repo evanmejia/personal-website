@@ -131,9 +131,9 @@
                         </p>
                     </article>
 
-                    <!-- ============ Project 3: On-Prem AI Data Analysis Stack ============ -->
+                    <!-- ============ Project 3: On-Prem AI Analytics Pipeline ============ -->
                     <article id="ai-data-stack" class="project">
-                        <h2>On-Prem AI Data Analysis Stack</h2>
+                        <h2>On-Prem AI Analytics Pipeline</h2>
                         <ul class="pills" aria-label="Tech stack">
                             <li class="pill">OpenClaw</li>
                             <li class="pill">WrenAI</li>
@@ -141,37 +141,32 @@
                             <li class="pill">OpenRefine</li>
                         </ul>
                         <p>
-                            Teams want the modern AI data workflow —
-                            natural-language questions against your database,
-                            extraction from messy documents, automated cleansing
-                            — but every SaaS AI option means shipping the data
-                            itself to a vendor's cloud. For some datasets that's
-                            a non-starter. So this was built for exactly that
-                            case: a live production deployment handling
-                            sensitive county data — case notes, SSNs — running
-                            entirely on-prem with no internet access.
-                        </p>
-                        <p>
-                            Rather than one vendor platform, I composed free and
-                            open-source tools on Proxmox, each owning one job:
-                            <strong>OpenClaw</strong> as the local AI agent —
-                            chat-driven, persistent memory, skill-based
-                            orchestration — the front door users actually talk
-                            to; <strong>WrenAI</strong>
-                            turning plain-language questions into real SQL;
-                            <strong>Unstract</strong> extracting clean
-                            structured records from messy PDFs, forms, and
-                            contracts; and <strong>OpenRefine</strong>
-                            repairing and normalizing existing datasets.
-                        </p>
-                        <p>
-                            Analysts used it to gain insight into large, dense
-                            datasets, clean up pre-existing databases, and build
-                            brand-new structured databases from mountains of
-                            unstructured case notes — work that used to be slow,
-                            manual passes, done in a conversation. 100% data
-                            locality, zero per-seat cost, no vendor lock-in. The
-                            data never leaves the rack.
+                            While modern AI makes it easy to query databases and
+                            extract data from messy documents, uploading
+                            sensitive county records (like case notes and SSNs)
+                            to an external cloud is a strict compliance
+                            violation. To solve this, I built an On-Prem AI
+                            Analytics Pipeline: a live production deployment
+                            running entirely on local dual-GPU hardware and a
+                            dedicated analyst workstation with zero external
+                            data transmission. Instead of relying on a single
+                            vendor platform, I composed four open-source tools
+                            where each layer owns one job:
+                            <b>Open WebUI</b> serves as the unified control room
+                            for local models and workflows,
+                            <b>Vanna</b> translates plain-language questions
+                            into complex SQL queries, <b>Unstract</b> extracts
+                            clean JSON records from messy PDFs and forms, and
+                            <b>MindsDB</b>
+                            federates live databases to automate data updates in
+                            place. Analysts use the pipeline to query dense
+                            datasets, clean up legacy records, and transform
+                            mountains of unstructured case notes into structured
+                            database tables—turning what used to be slow, manual
+                            passes into a single conversation. It delivers 100%
+                            data locality, zero per-seat cost, and no vendor
+                            lock-in. Data remains completely air-gapped from
+                            external networks.
                         </p>
                         <p>
                             <a href="https://github.com/evanmejia"
