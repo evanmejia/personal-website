@@ -73,23 +73,22 @@
                             <li class="pill">Nginx CDN</li>
                         </ul>
                         <p>
-                            Shellbound is a cross-platform game launcher and
-                            distribution pipeline built to solve the core
-                            onboarding problem of a private MMO community:
-                            securely delivering, patching, and updating a 9 GB
-                            game client on a zero-dollar infrastructure budget.
-                            Built as a Wails v2 desktop app (Go backend, vanilla
-                            JavaScript frontend) backed by a self-hosted CDN
-                            running in a Proxmox LXC container on an isolated
-                            DMZ VLAN, it replaces risky, full-client
-                            re-downloads with resumable, SHA-256-verified delta
-                            updates. To protect players from supply-chain
-                            tampering, every release is cryptographically signed
-                            with minisign/Ed25519, verified against a signed
-                            manifest, and delivered over pinned TLS with a
-                            fail-closed security model—while also integrating
-                            account registration, a one-click addon manager, and
-                            a Ghost-powered news feed directly into the client.
+                            I transformed the Shellbound MMO player experience
+                            by building a custom, cross-platform launcher to
+                            manage its 9GB game client. Facing zero
+                            infrastructure budget, I engineered a solution using
+                            a Wails v2 Go/JS backend and a self-hosted
+                            Proxmox-based CDN to provide seamless, delta-only
+                            updates that drastically reduced patch traffic. I
+                            prioritized security by implementing Ed25519 digital
+                            signatures and TLS pinning, ensuring that every
+                            update is verified as authentic and protected
+                            against malicious tampering. This all-in-one tool
+                            streamlined the entire player lifecycle—from account
+                            creation and news updates to automated addon
+                            management—replacing cumbersome manual processes
+                            with a single, trusted, and highly efficient desktop
+                            application for Windows and Linux.
                         </p>
                         <p>
                             <a
