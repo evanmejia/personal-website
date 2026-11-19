@@ -108,20 +108,22 @@
                             <li class="pill">Nginx Proxy Manager</li>
                         </ul>
                         <p>
-                            Phaworma (live at
-                            <a href="https://forms.evanmejia.com"
-                                >forms.evanmejia.com</a
-                            >) is a self-hosted, ephemeral form builder.
-                            Privacy-first, packaged as a single Go binary (built
-                            on PocketBase and SQLite). Each form lives in its
-                            own isolated database table with a 1-to-30-day
-                            lifespan; an hourly purge drops expired tables from
-                            disk and retires the short link with a 410 Gone.
-                            Features single-use claim-token invites, Argon2id
-                            form passwords, strict CSP, and cascading account
-                            deletion—paired with a zero-CDN vanilla JS SPA.
-                            Deployed on Proxmox LXC in production and available
-                            as a Docker image for self-hosters.
+                            I built
+                            <a href="https://forms.evanmejia.com">Phaworma</a>
+                            (a play on shawarma) to serve up a better way to
+                            collect data without the 'forever' baggage of
+                            traditional tools. Instead of hoarding data
+                            indefinitely, Phaworma provides compact ephemeral
+                            forms designed to disappear. Using an efficient Go
+                            architecture, I engineered a system that wraps each
+                            form in a strict Lifecycle, automatically purging
+                            expired data from the disk so nothing stale is ever
+                            left on the menu. I also wrapped every invite in a
+                            single use token to ensure privacy and built a total
+                            erasure policy so that when a user is done, their
+                            data is gone for good. It is a lightweight and
+                            secure solution that lets you collect exactly what
+                            you need and nothing more.
                         </p>
                         <p>
                             <a href="https://github.com/evanmejia/Phaworma"
