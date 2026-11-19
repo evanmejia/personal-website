@@ -142,32 +142,22 @@
                             <li class="pill">MindsDB</li>
                         </ul>
                         <p>
-                            While modern AI makes it easy to query databases and
-                            extract data from messy documents, uploading
-                            sensitive county records (like case notes and SSNs)
-                            to an external cloud is a strict compliance
-                            violation. To solve this, I built an On-Prem AI
-                            Analytics Pipeline: a live production deployment
-                            running entirely on local dual-GPU hardware and a
-                            dedicated analyst workstation with zero external
-                            data transmission. Instead of relying on a single
-                            vendor platform, I composed four open-source tools
-                            where each layer owns one job:
-                            <b>Open WebUI</b> serves as the unified control room
-                            for local models and workflows,
-                            <b>Vanna</b> translates plain-language questions
-                            into complex SQL queries, <b>Unstract</b> extracts
-                            clean JSON records from messy PDFs and forms, and
-                            <b>MindsDB</b>
-                            federates live databases to automate data updates in
-                            place. Analysts use the pipeline to query dense
-                            datasets, clean up legacy records, and transform
-                            mountains of unstructured case notes into structured
-                            database tables—turning what used to be slow, manual
-                            passes into a single conversation. It delivers 100%
-                            data locality, zero per-seat cost, and no vendor
-                            lock-in. Data remains completely air-gapped from
-                            external networks.
+                            To enable AI-driven insights without violating
+                            strict compliance regulations regarding sensitive
+                            county records, I engineered a fully air-gapped,
+                            on-premise AI analytics pipeline. Deployed on local
+                            dual-GPU hardware, the system integrates a
+                            specialized stack of open-source tools: Open WebUI
+                            for a unified control interface, Vanna for
+                            text-to-SQL translation, Unstract for unstructured
+                            data extraction, and MindsDB for database
+                            federation. This architecture allows analysts to
+                            transform massive volumes of unstructured case notes
+                            and legacy documents into structured database tables
+                            via natural language. The resulting pipeline ensures
+                            100% data locality and zero external transmission,
+                            providing a high-performance, zero-cost alternative
+                            to cloud-based AI providers.
                         </p>
                         <p>
                             <a href="https://github.com/evanmejia"
