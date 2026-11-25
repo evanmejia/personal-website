@@ -1,7 +1,7 @@
 /* ---------- Design tokens ---------- */
 :root {
-  --font-sans: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: "Roboto Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   --bg: #e6e6ec;
   --bg-card: #ffffff;
@@ -14,6 +14,7 @@
   --text-muted: #535373;
   --text-soft: #333346;
   --border: #c1c1d2;
+  --pill-hover-border: #8080a4;
   --btn-bg: #1a1a24;
   --btn-bg-hover: #333346;
   --btn-text: #e6e6ec;
@@ -670,6 +671,12 @@ a:hover {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--text-soft);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.pill:hover {
+  border-color: var(--pill-hover-border);
+  color: var(--text);
 }
 
 /* ---------- CTA (bottom of projects page) ---------- */
