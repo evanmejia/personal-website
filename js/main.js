@@ -74,11 +74,11 @@
       });
   }
 
-  // Back to top (both pages). Appears after one viewport of scroll.
+  // Back to top (both pages). Appears as soon as the page starts scrolling.
   var toTop = document.querySelector(".to-top");
   if (toTop) {
     var onToTopScroll = function () {
-      toTop.classList.toggle("visible", window.scrollY > window.innerHeight);
+      toTop.classList.toggle("visible", window.scrollY > 80);
     };
     window.addEventListener("scroll", onToTopScroll, { passive: true });
     onToTopScroll();

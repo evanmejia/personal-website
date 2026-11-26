@@ -744,7 +744,7 @@ details.read-more[open] summary {
 /* ---------- Back to top ----------
    Style adapted from uiverse.io/waliddu001,
    "orange-panther-33" (MIT). Show/hide via .visible,
-   toggled by js/main.js after one viewport of scroll. */
+   toggled by js/main.js shortly after scrolling begins. */
 .to-top {
   position: fixed;
   right: 1.5rem;
