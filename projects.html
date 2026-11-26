@@ -65,28 +65,55 @@
                             <li class="pill">Proxmox LXC</li>
                             <li class="pill">Nginx CDN</li>
                         </ul>
-                        <p>
-                            I transformed the Shellbound MMO player experience
-                            by building a custom, cross-platform launcher to
-                            manage its 9GB game client. Facing zero
-                            infrastructure budget, I engineered a solution using
-                            a Wails v2 Go/JS backend and a self-hosted
-                            Proxmox-based CDN to provide seamless, delta-only
-                            updates that drastically reduced patch traffic. I
-                            prioritized security by implementing Ed25519 digital
-                            signatures and TLS pinning, ensuring that every
-                            update is verified as authentic and protected
-                            against malicious tampering. This all-in-one tool
-                            streamlined the entire player lifecycle—from account
-                            creation and news updates to automated addon
-                            management—replacing cumbersome manual processes
-                            with a single, trusted, and highly efficient desktop
-                            application for Windows and Linux.
+                        <div class="project-media">
+                            <span class="project-media-label">screenshot / demo</span>
+                        </div>
+                        <p class="lead">
+                            Cross-platform desktop launcher for a 9GB MMO game
+                            client, built with zero infrastructure budget.
                         </p>
-                        <p>
+                        <p class="outcome">
+                            Replaced player-to-player patch sharing via a GitHub
+                            repo with a self-hosted, delta-patched CDN—signed,
+                            verified updates delivered through a single
+                            front-end that makes downloading and installing a
+                            few clicks.
+                        </p>
+                        <details class="read-more">
+                            <summary>Read more</summary>
+                            <p>
+                                I transformed the Shellbound MMO player experience
+                                by building a custom, cross-platform launcher to
+                                manage its 9GB game client. Facing zero
+                                infrastructure budget, I engineered a solution using
+                                a Wails v2 Go/JS backend and a self-hosted
+                                Proxmox-based CDN to provide seamless, delta-only
+                                updates that drastically reduced patch traffic. I
+                                prioritized security by implementing Ed25519 digital
+                                signatures and TLS pinning, ensuring that every
+                                update is verified as authentic and protected
+                                against malicious tampering. This all-in-one tool
+                                streamlined the entire player lifecycle—from account
+                                creation and news updates to automated addon
+                                management—replacing cumbersome manual processes
+                                with a single, trusted, and highly efficient desktop
+                                application for Windows and Linux.
+                            </p>
+                        </details>
+                        <p class="project-actions">
                             <a
+                                class="project-link"
+                                href="https://shellbound.xyz/"
+                                target="_blank"
+                                rel="noopener"
+                                >Website ↗</a
+                            >
+                            <a
+                                class="project-link"
                                 href="https://github.com/evanmejia/shellbound-launcher"
-                                >View repository ↗</a
+                                target="_blank"
+                                rel="noopener"
+                                >Source ↗</a
                             >
                         </p>
                     </article>
@@ -100,27 +127,53 @@
                             <li class="pill">Proxmox LXC</li>
                             <li class="pill">Nginx Proxy Manager</li>
                         </ul>
-                        <p>
-                            I built
-                            <a href="https://forms.evanmejia.com">Phaworma</a>
-                            (a play on shawarma) to serve up a better way to
-                            collect data without the 'forever' baggage of
-                            traditional tools. Instead of hoarding data
-                            indefinitely, Phaworma provides compact ephemeral
-                            forms designed to disappear. Using an efficient Go
-                            architecture, I engineered a system that wraps each
-                            form in a strict Lifecycle, automatically purging
-                            expired data from the disk so nothing stale is ever
-                            left on the menu. I also wrapped every invite in a
-                            single use token to ensure privacy and built a total
-                            erasure policy so that when a user is done, their
-                            data is gone for good. It is a lightweight and
-                            secure solution that lets you collect exactly what
-                            you need and nothing more.
+                        <div class="project-media">
+                            <span class="project-media-label">screenshot / demo</span>
+                        </div>
+                        <p class="lead">
+                            An ephemeral form builder—forms that collect exactly
+                            what you need, then destroy themselves.
                         </p>
-                        <p>
-                            <a href="https://github.com/evanmejia/Phaworma"
-                                >View repository ↗</a
+                        <p class="outcome">
+                            Self-hosted and free, with single-use invite tokens
+                            and a total-erasure policy: nothing survives the
+                            form's lifecycle.
+                        </p>
+                        <details class="read-more">
+                            <summary>Read more</summary>
+                            <p>
+                                I built
+                                <a href="https://forms.evanmejia.com">Phaworma</a>
+                                (a play on shawarma) to serve up a better way to
+                                collect data without the 'forever' baggage of
+                                traditional tools. Instead of hoarding data
+                                indefinitely, Phaworma provides compact ephemeral
+                                forms designed to disappear. Using an efficient Go
+                                architecture, I engineered a system that wraps each
+                                form in a strict Lifecycle, automatically purging
+                                expired data from the disk so nothing stale is ever
+                                left on the menu. I also wrapped every invite in a
+                                single use token to ensure privacy and built a total
+                                erasure policy so that when a user is done, their
+                                data is gone for good. It is a lightweight and
+                                secure solution that lets you collect exactly what
+                                you need and nothing more.
+                            </p>
+                        </details>
+                        <p class="project-actions">
+                            <a
+                                class="project-link"
+                                href="https://forms.evanmejia.com"
+                                target="_blank"
+                                rel="noopener"
+                                >Live demo ↗</a
+                            >
+                            <a
+                                class="project-link"
+                                href="https://github.com/evanmejia/Phaworma"
+                                target="_blank"
+                                rel="noopener"
+                                >Source ↗</a
                             >
                         </p>
                     </article>
@@ -134,27 +187,46 @@
                             <li class="pill">Unstract</li>
                             <li class="pill">MindsDB</li>
                         </ul>
-                        <p>
-                            To enable AI-driven insights without violating
-                            strict compliance regulations regarding sensitive
-                            county records, I engineered a fully air-gapped,
-                            on-premise AI analytics pipeline. Deployed on local
-                            dual-GPU hardware, the system integrates a
-                            specialized stack of open-source tools: Open WebUI
-                            for a unified control interface, Vanna for
-                            text-to-SQL translation, Unstract for unstructured
-                            data extraction, and MindsDB for database
-                            federation. This architecture allows analysts to
-                            transform massive volumes of unstructured case notes
-                            and legacy documents into structured database tables
-                            via natural language. The resulting pipeline ensures
-                            100% data locality and zero external transmission,
-                            providing a high-performance, zero-cost alternative
-                            to cloud-based AI providers.
+                        <div class="project-media">
+                            <span class="project-media-label">screenshot / demo</span>
+                        </div>
+                        <p class="lead">
+                            A fully air-gapped AI analytics stack for sensitive
+                            county records—natural language to structured data,
+                            100% local.
                         </p>
-                        <p>
-                            <a href="https://github.com/evanmejia"
-                                >GitHub profile ↗</a
+                        <p class="outcome">
+                            High-performance text-to-SQL and document extraction
+                            with zero external transmission and zero cloud cost.
+                        </p>
+                        <details class="read-more">
+                            <summary>Read more</summary>
+                            <p>
+                                To enable AI-driven insights without violating
+                                strict compliance regulations regarding sensitive
+                                county records, I engineered a fully air-gapped,
+                                on-premise AI analytics pipeline. Deployed on local
+                                dual-GPU hardware, the system integrates a
+                                specialized stack of open-source tools: Open WebUI
+                                for a unified control interface, Vanna for
+                                text-to-SQL translation, Unstract for unstructured
+                                data extraction, and MindsDB for database
+                                federation. This architecture allows analysts to
+                                transform massive volumes of unstructured case notes
+                                and legacy documents into structured database tables
+                                via natural language. The resulting pipeline ensures
+                                100% data locality and zero external transmission,
+                                providing a high-performance, zero-cost alternative
+                                to cloud-based AI providers.
+                            </p>
+                        </details>
+                        <p class="project-actions">
+                            <a
+                                class="project-link"
+                                href="https://github.com/evanmejia"
+                                target="_blank"
+                                rel="noopener"
+                                >Source ↗</a
                             >
                         </p>
                     </article>
@@ -196,6 +268,14 @@
                 </p>
             </footer>
         </div>
+
+        <button class="to-top" type="button" aria-label="Back to top">
+            <svg viewBox="0 0 384 512" aria-hidden="true">
+                <path
+                    d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+                />
+            </svg>
+        </button>
 
         <script src="js/main.js" defer></script>
     </body>

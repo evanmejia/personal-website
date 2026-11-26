@@ -433,22 +433,6 @@ a:hover {
   outline-offset: 3px;
 }
 
-.card-meta {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-style: italic;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-
-.card .card-meta {
-  color: var(--text-soft);
-}
-
 .card h3 {
   margin: 0 0 0.4rem;
   font-family: var(--font-sans);
@@ -466,7 +450,6 @@ a:hover {
 
 /* Keep the text to about half the card so it doesn't overlap the art
    that shows through on the right */
-.card .card-meta,
 .card h3,
 .card p {
   max-width: 55%;
@@ -649,11 +632,6 @@ a:hover {
   font-size: 1.75rem;
 }
 
-.tagline {
-  margin: 0 0 1rem;
-  color: var(--text-muted);
-}
-
 .pills {
   display: flex;
   flex-wrap: wrap;
@@ -676,7 +654,82 @@ a:hover {
 
 .pill:hover {
   border-color: var(--pill-hover-border);
+  color: var(--text-heading);
+}
+
+/* ---------- Project media (placeholder for screenshot / demo) ---------- */
+.project-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--border);
+  border-radius: 0.75rem;
+  background: var(--bg-card);
+}
+
+.project-media-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.project-media video,
+.project-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Project summary, outcome, and links ---------- */
+.project .lead {
+  margin-bottom: 0.5rem;
+}
+
+.project .outcome {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0 0;
+}
+
+.project-link {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+/* ---------- Read more (collapsible) ---------- */
+details.read-more {
+  margin-top: 0.75rem;
+}
+
+details.read-more summary {
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  transition: color 0.15s ease;
+  user-select: none;
+}
+
+details.read-more summary:hover,
+details.read-more summary:focus-visible {
   color: var(--text);
+}
+
+details.read-more[open] summary {
+  margin-bottom: 0.75rem;
+  color: var(--text-soft);
 }
 
 /* ---------- CTA (bottom of projects page) ---------- */
@@ -692,6 +745,86 @@ a:hover {
 .cta h2 {
   margin: 0 0 0.75rem;
   font-size: 1.25rem;
+}
+
+/* ---------- Back to top ----------
+   Style adapted from uiverse.io/waliddu001,
+   "orange-panther-33" (MIT). Show/hide via .visible,
+   toggled by js/main.js after one viewport of scroll. */
+.to-top {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 40;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253);
+  cursor: pointer;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.5rem);
+  transition:
+    width 0.3s ease,
+    border-radius 0.3s ease,
+    background-color 0.3s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.to-top svg {
+  width: 12px;
+  transition: transform 0.3s ease;
+}
+
+.to-top svg path {
+  fill: white;
+}
+
+.to-top::before {
+  position: absolute;
+  bottom: -20px;
+  content: "Back to Top";
+  color: white;
+  font-size: 0px;
+  transition: font-size 0.3s ease;
+}
+
+.to-top:hover,
+.to-top:focus-visible {
+  width: 140px;
+  border-radius: 50px;
+  background-color: rgb(181, 160, 255);
+}
+
+.to-top:hover svg,
+.to-top:focus-visible svg {
+  transform: translateY(-200%);
+}
+
+.to-top:hover::before,
+.to-top:focus-visible::before {
+  font-size: 13px;
+  opacity: 1;
+  bottom: unset;
+}
+
+.to-top:focus-visible {
+  outline: 2px solid var(--text-heading);
+  outline-offset: 2px;
 }
 
 /* ---------- Footer ---------- */

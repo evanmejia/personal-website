@@ -73,4 +73,23 @@
         /* keep the fallback pill */
       });
   }
+
+  // Back to top (both pages). Appears after one viewport of scroll.
+  var toTop = document.querySelector(".to-top");
+  if (toTop) {
+    var onToTopScroll = function () {
+      toTop.classList.toggle("visible", window.scrollY > window.innerHeight);
+    };
+    window.addEventListener("scroll", onToTopScroll, { passive: true });
+    onToTopScroll();
+    toTop.addEventListener("click", function () {
+      var reduceMotion =
+        window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({
+        top: 0,
+        behavior: reduceMotion ? "auto" : "smooth"
+      });
+    });
+  }
 })();
