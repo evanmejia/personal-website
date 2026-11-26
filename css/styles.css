@@ -702,12 +702,6 @@ a:hover {
   margin: 2rem 0 0;
 }
 
-.project-link {
-  font-size: 1.375rem;
-  font-weight: 700;
-  color: var(--text-heading);
-}
-
 /* ---------- Read more (collapsible) ---------- */
 details.read-more {
   margin-top: 0.75rem;
